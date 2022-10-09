@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Blog</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Times New Roman, Times, serif;
+  background-color: #e9e9e9;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+    
+table {
+  font-family: Times New Roman, Times, serif;
+  width: 70%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child {
+  background-color: white;
+}
+</style>
+	<body class="subpage">
+        <div id="page-wrapper">
+		  <div class="topnav">
+		      <a class="active" href="index.html">Kang Yan</a>
+		      <a href="Blog.html">Blogs</a>
+		      <a href="https://www.linkedin.com/in/kyanyan">LinkedIn</a>
+		      <a href="Publications.html">Publications</a>
+		      <a href="https://github.com/kangyans">Github</a>
+          <a href="Archive.html">Archive</a>
+		  <div class="search-container">
+	           <form action="/action_page.php">
+	               <input type="text" placeholder="Search..." name="search">
+    	       </form>
+	      </div>
+	     </div>
+
+			<!-- Content -->
+            <section id="content">
+				<div class="container">
+				    <div class="row">
+				        <div class="col-12"> 
+                    <header>
+                        <h2>Introduction</h2>
+				    </header>
+
+					            <p>
+                                    This archive includs all kinds of information outside academia rangeing from knowledge(physics, math and engineering), econimics, talks, travel pictures, anime, books and all the stuff that interests me. Life is interesting and colorful, which is true only for those who are willing to discover them. As Chinese saying goes,"读万卷书，行万里路"(Knowledge comes from books and from experience accumulation). 
+					            </p>
+                    <hr>
+                    <header>
+                        <h2>Images</h2>
+				    </header>
+
+					            <ul>
+                                    <li><a href="images/DuLab.jpg">Group photo of Prof Du's Lab (SHH, 2020)</a></li>
+                                    <li><a href="images/Shenandoah.jpg">Shenandoah National Park (VA, 2021)</a></li>
+                                    <li><a href="images/London.jpg">Oxford University (LON, 2021)</a></li>
+                                    <li><a href="images/flamingo.jpg">Flamingo in The Dallas World Aquarium (TX, 2021)</a></li>
+					            </ul>
+                    <hr>
+                    <header>
+                        <h2>Animes</h2>
+				    </header>
+
+                        <table>
+                          <tr>
+                            <th>Name</th>
+                            <th>Discription</th>
+                            <th>Finished:[Y/N]</th>
+                          </tr>
+                          <tr>
+                            <td><img src="images/onepiece.png" alt="" style= "width: 30px;"/>《One piece》</td>
+                              <td>[<a href="https://twitter.com/OP_NEWS2022">Manga info</a>][<a href="https://www.youtube.com/channel/UCILvZ0mk8vkZ599FNRwbVGA">Commentary</a>][<a href="https://www.crunchyroll.com/one-piece">Anime</a>]</td>
+                            <td>N</td>
+                          </tr>
+                          <tr>
+                            <td><img src="images/rick-and-morty.png" alt="" style= "width: 30px;"/>《Rick and morty》</td>
+                            <td>[<a href="https://www.adultswim.com/videos/rick-and-morty">Anime</a>]</td>
+                            <td>N</td>
+                          </tr>
+                          <tr>
+                            <td><img src="images/samurai.png" alt="" style= "width: 30px;"/>《Samurai Champloo》</td>
+                            <td>[<a href="https://www.hulu.com/series/samurai-champloo-77477b5f-905c-492f-a6a2-087fd4f85a15">Anime</a>]</td>
+                            <td>Y</td>
+                          </tr>
+
+                        </table>
+
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+	</body>
+</html>
+
