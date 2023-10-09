@@ -1,2 +1,2 @@
-###### A personal website for academic purpose.
+###### A personal [website](kangyans.github.io) for academic purposes.
 ###### @ UVA, 2022.
