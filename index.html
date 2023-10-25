@@ -44,6 +44,12 @@ body {
   display: inline-block;
   vertical-align: middle;
   font-size: 17px;
+  background-color: white;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
 }
 
 .topnav {
@@ -139,7 +145,12 @@ body {
                 </div>
 	</section>
         <hr>
-
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
 	</body>
 </html>
 
