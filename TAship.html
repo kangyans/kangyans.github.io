@@ -1,9 +1,3 @@
-<!DOCTYPE HTML>
-<!--
-	Halcyonic by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Yan, Kang</title>
@@ -23,12 +17,11 @@
 			align-items: center;
 			justify-content: center;
 		}
-			
+
 		img{
 			max-width: 100%
-				
 		}
-			
+
 		.image{
 			flex-basis: 40%
 		}
@@ -37,81 +30,128 @@
 			font-size: 17px;
 			padding-left: 20px;
 		}
-		
+
 		body {
-		  margin-left: 20%;
-		  margin-right: 20%;
-		  margin-top: 20px;
-		  margin-bottom: 20px;
-		  line-height:1.6;
-		  font-family: 'Times New Roman', Times, serif;;
-		  display: inline-block;
-		  vertical-align: middle;
-		  font-size: 17px;
-		  text-align: justify;
-		  background-color: white;
+		margin-left: 20%;
+		margin-right: 20%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		line-height:1.6;
+		font-family: 'Times New Roman', Times, serif;;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 17px;
+		text-align: justify;
+		background-color: white;
 		}
-		
+
 		.dark-mode {
-		  background-color: #483C32;
-		  color: white;
+		background-color: #483C32;
+		color: white;
+		float: right;
+
 		}
-		
-		.dark-mode a:visited{
+
+		.dark-mode a:visited {
 			color: green;
 		}
-		
-		.dark-mode a{
+
+		.dark-mode a {
 			color: rgb(22, 166, 0);
 		}
-		
-			
-		.topnav {
-		  overflow: hidden;
-		  text-align: center;
+
+
+		.sidenav{
+			height: 100%;
+			width: 0;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: #111;
+			overflow-x: hidden;
+			padding-top: 60px;
+			transition: 0.5s;
 		}
-		
-		.topnav a {
-		  float: center;
-		  color: black;
-		  text-align: center;
-		  padding: 20px 20px;
-		  text-decoration: none;
-		  font-size: 20px;
+
+
+		.sidenav a{
+			padding: 8px 8px 8px 32px;
+			text-decoration: none;
+			font-size: 25px;
+			color: #818181;
+			display: block;
+			transition: 0.3s;
 		}
-		
-		.topnav a:hover {
-		  background-color: #ddd;
-		  color: black;
+
+
+		.sidenav a:hover{
+			color: #f1f1f1;
 		}
-		
-		
-		.topnav a:visited{
-			color: black;
+
+		.sidena .closebtn{
+			position: absolute;
+			top: 0;
+			right: 25px;
+			font-size: 36px;
+			margin-left: 50px;
 		}
-	
+
+
+		#main{
+			transition: margin-left .5s;
+			padding: 20px;
+		}
+
+
+		@media screen and (max-height: 450px) {
+			.sidenav {padding-top: 15px;}
+			.sidenav a {font-size: 18px;}
+
+		}
 	</style>
-	
+
 	<body>
-		<ion-button onclick="darkmoon()"><i class="fa fa-moon-o" aria-hidden="true" style="font-size:40px;"></i></ion-button>
-		<script>
-			function darkmoon() {
-   				var element = document.body;
-   				element.classList.toggle("dark-mode");
-			}
-		</script>
-		
-	        <section>
-		      <div class="topnav">
-		          <a href="index.html">Home</a>
-			  <a href="">Projects</a>
-			  <a href="">Publications</a>
-			  <a href="TAship.html">TAship</a>
-		          <a href="">CV</a>
-		          <a href="">FAQ</a>	      
-	             </div>
-        	</section>
-        	<hr>
+
+	    <section>
+		    <!--div class="topnav" -->
+			<div id = "mySidenav" class="sidenav">
+				<a href="javascript:void(0)" class = "closebtn" onclick="closeNav()">&times;</a>
+		        <a href="index.html">Home</a>
+			    <a href="Projects.html">Projects</a>
+			    <a href="Publications.html">Publications</a>
+			    <a href="TAship.html">TAship</a>
+		        <a href="CV.html">CV</a>
+		        <a href="FAQ.html">FAQ</a>
+				<a href="#" onclick="darkmoon()">Dark Mode</a>  
+	        </div>
+
+			<script>
+				function darkmoon() {
+					   var element = document.body;
+					   element.classList.toggle("dark-mode");
+				}
+			</script>
+			
+
+			<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+
+			<script>
+				function openNav() {
+					document.getElementById("mySidenav").style.width = "250px";
+					document.getElementById("main").style.marginLeft = "250px";
+					document.body.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+				}
+
+				function closeNav() {
+					document.getElementById("mySidenav").style.width = "0";
+					document.getElementById("main").style.marginLeft = "0";
+					document.body.style.backgroundColor = "white";
+				}
+			</script>
+			
+        </section>
+        <hr>
 		
         <section>
             <h3>Shanghai Jiao Tong University</h3>
@@ -120,7 +160,7 @@
                     <li><b>The principle and application of MRI</b>
                         <ul>
                             <li><b>Instructor</b>: <a href="https://bme.sjtu.edu.cn/En/FacultyDetail/31">Prof. Yiping P. Du</a></li>
-                            <li><b>Description</b>: MRI stands as a powerful imaging modality, offering a myriad of benefits including non-ionizing radiation imaging, exceptional soft tissue contrast, and diverse imaging contrasts. Open to both undergraduate and graduate students, this course is crafted to deepen their understanding of the fundamental principles and main applications of MRI. Through a dynamic blend of lectures and hands-on labs, students will unravel the intricacies of MRI. In lectures, participants will delve into the basic principles, gaining insights into the core concepts in MRI. In labs, students will have the opportunity to develop and deploy the commonly-used pulse sequences on a 0.5T MRI scanner dedicated to teaching purposes. By the end of the course, students will emerge with a comprehensive understanding of MRI principles, coupled with the ability to design pulse sequences on their own.</li>
+                            <li><b>Description</b>: MRI stands as a powerful imaging modality, offering a myriad of benefits including non-ionizing radiation imaging, exceptional soft tissue contrast, and diverse imaging contrasts. Open to both undergraduate and graduate students, this course is crafted to deepen their understanding of the fundamental principles and main applications of MRI. Through a dynamic blend of lectures and hands-on labs, students will unravel the intricacies of MRI. In lectures, participants will delve into the basic principles, gaining insights into the core concepts in MRI. The theoretical foundation laid in lectures sets the stage for a deeper exploration in the practical realm. In labs, students will have the opportunity to develop and deploy the pulse sequence on a 0.5T MRI scanner dedicated to teaching purposes. By the end of the course, students will emerge with a comprehensive understanding of MRI principles, coupled with the ability to design pulse sequences on their own.</li>
                         </ul>
                     </li>
                 </ul>
