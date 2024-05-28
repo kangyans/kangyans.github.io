@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Motion Correction Methods in MRI</title> 
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+
+    <style>
+        div{
+            text-align: justify;
+        }
+    </style>
+
+        <body>
+            <div>
+                <h2>Motion Correction Methods in MRI</h2>
+                <h4>Data: 05/14/2024</h4>
+
+                <hr>
+                <h3>1. Motivation</h3>
+                Recently I am reading some MRM, TMI papers and ISMRM abstracts on motion correction. I am not very familiar with this topic. I have read a couple of papers before that might fall into this category, in this case <a href='https://onlinelibrary.wiley.com/doi/10.1002/mrm.25665'>XD-GRASP</a> and <a href='https://onlinelibrary.wiley.com/doi/10.1002/mrm.25240'>L+S</a>. However, at that time, I was still confused by the terms "motion-resolved" and "motion-compensated". What's more, questions such as the difference between head motion and heart/breathing motion popped up one after another. I onced heard on twitter that learning a subject is sometimes to learn the history of the subject. So I decided to write an article to help me understand the motion effects in MRI and related motion correction methods.
+                <br>
+                <br>
+                Articles I read recently which rasied my interests in writing this blog:
+                <ul>
+                    <li> Daniel Polak et al. <a href="https://onlinelibrary.wiley.com/doi/10.1002/mrm.28971">Scout accelerated motion estimation and reduction (SAMER)</a> Mag Reson Med. 2022. 87(1):163-178. </li>
+                    <li> Neik RF Huttinga et al. <a href="https://iopscience.iop.org/article/10.1088/1361-6560/ab554a">MR-MOTUS: model-based non-rigid motion estimation for MR-guided radiotherapy using a reference image and minimal k-space data.</a> Phys Med Biol. 2020 65(1):015004</li>
+                    <li> Veronika Spieker et al. <a href="https://ieeexplore.ieee.org/document/10285512">Deep Learning for Retropsective Motion Correction in MRI: A Comprehensive Review.</a> IEEE TMI. 2024 43(2) </li>
+                </ul>
+                I found the open-source codes of motion-correction on github, named <a href="https://github.com/lab-midas/ismrm-moco-workshop">ismrm-moco-workshop</a>. The discuss of motion-correction methods in MRI will mainly based on this open-source codes.
+                <br>
+                <h3>2. Don't move!</h3>
+                MRI is a useful medical modality for clinic use, but has low imaging speed. Motion that occurs during the scanning can degrade the quality of image, making the image clinically unreadable. Therefore, subjects will be asked not to move in brain imaging or hold their breath for around ten seconds in abdomen imaging. However, motion is inevitable when MRI are used for pediatric imaging or cadiac imaing. What's more, It is desirable to correct for motion artifacts based on the pulse sequence design or post processing instead of asking the patients to try to not move. Before correction, we have to understand how motion affects images.
+                <br>
+                <br>
+                Generally, we have two types of motion: rigid motion and non-rigid (elastic) motion. In rigid motion, we only have translation and rotaion. Regarding non-rigid motion, the image is deformed with a deformed field. We can also describe the motion in spatial domain and temporal domain.
+                <h3>3. Hey motion: I want to know you</h3>
+                <h4>3.1 Matrix description of motion in spatial domain </h4>
+                <h4>3.1.1 Matrix description</h4>
+                We can build a linear relationship between rigid-motion-corrupted k-space \(k^*\) and motion-free/corrected k-space \(k\):
+                <p>
+                    \[v(k) = v^*(k^*){exp(2i\pi k^* \cdot t) \over \left|det(A)\right|}\]
+
+                    where \(k^*\) is the motion corrupted k-space trajectory, \(k\) is the k-space trajectory without motion. \(t = [t_x, t_y, t_z]^T \) is the translational compoment of the motion and \(A\) is the affine motion matrix in 3D:
+                    \[A = RGS = R_xR_yR_zGS\]
+                    \[= \begin{bmatrix}
+                    1 & 0 & 0 \\
+                    0 & cos\phi & -sin\phi \\
+                    0 & sin\phi & cos\phi 
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    cos\theta & 0 & sin\theta \\
+                    0 & 1 & 0 \\
+                    -sin\theta & 0 & cos\theta
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    cos\psi & -sin\psi & 0 \\
+                    sin\psi & cos\psi & 0 \\
+                    0 & 0 & 1 
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    1 & G_{xy} & G_{xz} \\
+                    0 & 1 & G_{yz} \\
+                    0 & 0 & 1 
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    S_x & 0 & 0 \\
+                    0 & S_y & 0 \\
+                    0 & 0 & S_z 
+                    \end{bmatrix}
+                    \]
+                   
+                    where \(R_x\), \(R_y\), \(R_z\) (with angles \({\phi, \theta, \psi}\)) are three rotation matrix along the respective axis \(x\), \(y\), \(z\), shearing matrix \(G\) and scaling matrix \(S\).
+                    <br>
+                    <br>
+                    The above equation can be simplified when we go to 2D motion:
+                    \[A = RGS = 
+                    \begin{bmatrix}
+                    cos\phi & sin\phi  \\
+                    -sin\phi & cos\phi \\
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    1 & G_{xy}  \\
+                    0 & 1 \\
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    S_x & 0  \\
+                    0 & S_y \\
+                    \end{bmatrix}
+                     \]
+                </p>
+                <h4>3.1.2 Affine motion</h4>
+                The 3D affine transformation map the motion-free k-space \(k = [k_x, k_y, k_z]\) points to the motion-corrupted k-space \(k^* = [k_x^*, k_y^*, k_z^*]^T\) following \(k^* = A^{-T}k\)
+                <br>
+                <br>
+
+                k-space domain:
+                \[
+                \begin{bmatrix}
+                k_x^* \\
+                k_y^* \\
+                k_z^*
+                \end{bmatrix}
+                =R
+                \begin{bmatrix}
+                1 & 0 & 0 \\
+                -G_{xy} & 1 & 0 \\
+                (G_{xy}G_{yz} - G_{xz}) & -G_{yz} & 1
+                \end{bmatrix}
+                \begin{bmatrix}
+                S_x^{-1} & 0 & 0 \\
+                0 & S_y^{-1} & 0 \\
+                0 & 0 & S_z^{-1} 
+                \end{bmatrix}
+                \begin{bmatrix}
+                k_x \\
+                k_y \\
+                k_z
+                \end{bmatrix}
+                \]
+
+                <br>
+                Image domain:
+                \[
+                \begin{bmatrix}
+                x^* \\
+                y^* \\
+                z^*
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                   &   &   & t_x \\
+                   & R &   & t_y \\
+                   &   &   & t_z \\
+                 0 & 0 & 0 & 1
+                \end{bmatrix} GS 
+
+                \begin{bmatrix}
+                x \\
+                y \\
+                z \\
+                1
+                \end{bmatrix}
+                \]
+                Add the translations into the matrix. For rigid motion, Translation \(t\) and rotation \(R\) only. i.e. \(G = S = I\), where \(I\) is the identity matrix. Regarding translational motion, translation \(t\) only. i.e. \(R = G = S = I\).
+                
+                <h4>3.1.3 Non-rigid motion</h4>
+                Regarding non-rigid motion, the image \(\rho \in \mathbb{R}^N\) is deformed by a motion field \(u\), where \(u\) is vector and \(u \in \mathbb{R}^{N \times D}\). At the same time, the image will obey the law of conservation:
+                \[ \rho_d(x^*) = \rho(u(x))\]
+
+                <h4>3.2 Temporal description of motion</h4>
+                In temporal domain, there are some specific motions for which the pattern of motion repeats itself, and some for which it does not. Accordingly, we can classify moitions into two categories: regular and irrgular motions. Two typical examples of motions are heart/breath motion (regualr motion) and heart motion (irrgualr motion). The XD-GRASP proposed by Feng Li et al was based on the regular motion of cardiac and respiratory.
+                <br>
+                <br>
+                Next question is how to estimate motion?
+                
+                <h3>4. It's time to say goodbye, motion</h3>
+
+                
+                
+            </div>
+        </body>
+</html>
