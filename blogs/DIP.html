@@ -7,6 +7,7 @@
     body.me{
         text-align: justify;
     }
+
 </style>
 
 <p style="text-align: left">[<a href="https://markgriswold.substack.com/p/thoughts-on-over-a-decade-of-magnetic">Previous</a>] <span style="float: right;">[Next]</span></p>
@@ -17,12 +18,13 @@
 <body class="me">
     <p>Basic information realted to "Deep Image Prior (DIP)":
         <ul>
-        <li><b>Reference:</b> Dmitry Ulyanov et al. <a href="https://arxiv.org/abs/1711.10925">Deep Image Prior</a>. arXiv:1711.10925 (2017)</li> </p>
-        <li><b>Sources:</b> [<a href="https://github.com/DmitryUlyanov/deep-image-prior">Code</a>] [<a href="https://www.youtube.com/watch?v=-g1NsTuP1_I">Youtube</a>] [<a href="https://dmitryulyanov.github.io/deep_image_prior">Project Page</a>]</li>
+        <li><p><b>Reference:</b> Dmitry Ulyanov et al. <a href="https://arxiv.org/abs/1711.10925">Deep Image Prior</a>. arXiv:1711.10925 (2017)</li>
+        <li><p><b>Sources:</b> [<a href="https://github.com/DmitryUlyanov/deep-image-prior">Code</a>] [<a href="https://www.youtube.com/watch?v=-g1NsTuP1_I">Youtube</a>] [<a href="https://dmitryulyanov.github.io/deep_image_prior">Project Page</a>]</p></li>
     </ul>
+    </p>
     <h3>1. What's the idea of deep image prior (DIP)?</h3>
     <p><b>[Method Section of DIP paper]</b></p>
-    <p>A deep generator network is a parametric function \(x = f_{\theta}(z)\) that map a code vector \(z\) to an image \(x\). Generators are often used to model a complex distribution \(p(x)\) over images as teh transformation of simple distribution \(p(z)\) over the codes, such as Gaussian distribution.</p>
+    <p>A deep generator network is a parametric function \(x = f_{\theta}(z)\) that map a code vector \(z\) to an image \(x\). Generators are often used to model a complex distribution \(p(x)\) over images as the transformation of simple distribution \(p(z)\) over the codes, such as Gaussian distribution.</p>
     <p>Some people may think that the distribution \(p(x)\) is encoded in the parameters \(\theta\) of the network model. However, the authors of DIP hold the idea that a significant amount of information about the image distribution is contained in the <i>structure</i> of the network even without performing any training of model parameters. </p>
     <p>The generalized equation for tasks such as denosing, impainting, and superresolution etc.: 
     $${x^* = \underset{x}{\mathrm {argmin}} E(x;x_0) + R(x) }$$
@@ -33,12 +35,17 @@
     </p>
 
     <h3>2. DIP in MRI</h3>
-    <p>I found several articles using DIP in dymamic imaging, motion correction, and parameter mapping: <ul>
-        <li>Jaejun Yoo. et al. <a href="https://pubmed.ncbi.nlm.nih.gov/34043506/">Time-Dependent Deep Image Prior for Dynamic MRI</a>. IEEE TMI (2021) [<a href="https://github.com/jaejun-yoo/TDDIP">Code</a>]</li>
-        <li>Jongyeon Lee. et al <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mrm.30026">Unsupervised motion artifact correction of turbo spin-echo MRI using deep image prior</a>. MRM (2024)</li>
-        <li>Hamilton JI. et al. <a href="https://pubmed.ncbi.nlm.nih.gov/38098428/">Deep image prior cine MR fingerprinting with \(B_1^+\) spin history correction</a>. MRM (2024)</li>
+    <p>I found several articles using DIP in dynamic imaging, motion correction, and parameter mapping, their links are given as follows: <ul>
+        <li><p>Jaejun Yoo. et al. <a href="https://pubmed.ncbi.nlm.nih.gov/34043506/">Time-Dependent Deep Image Prior for Dynamic MRI</a>. IEEE TMI (2021) [<a href="https://github.com/jaejun-yoo/TDDIP">Code</a>]</p></li>
+        <li><p>Jongyeon Lee. et al <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mrm.30026">Unsupervised motion artifact correction of turbo spin-echo MRI using deep image prior</a>. MRM (2024)</p></li>
+        <li><p>Hamilton JI. et al. <a href="https://pubmed.ncbi.nlm.nih.gov/38098428/">Deep image prior cine MR fingerprinting with \(B_1^+\) spin history correction</a>. MRM (2024)</p></li>
     </ul></p>
+    <p>In dynamic imaging, instead of reconstructing each single image at each time point, you have to consider the temporal dependencies of dynamic measurements. In TDDIP method, they used a one-dimensional manifold parametrized by time to learn the time-dependencies. Even though a temporally meaningful manifolds was chosen, the hand-crafted design will limit the performance. Therefore, the author introduced a MapNet [<a href="https://openaccess.thecvf.com/content_CVPR_2019/html/Karras_A_Style-Based_Generator_Architecture_for_Generative_Adversarial_Networks_CVPR_2019_paper.html">1</a>] to add flexibility to their model. The MapNet involves some fully connected layers with nonlinearities, which is to learn to map a fixed manifold into the more expressive latent space. \(\Omega = g_{\phi}(Z)\)</p>
+    
+    <h3>3. Q&A</h3>
+    <h4>1. Don't need to train MapNet either?</h4>
 
+    <span style="color:red;">[this blogs is unfinished....]</span>
 
     <hr>
 </body>
