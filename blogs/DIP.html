@@ -41,13 +41,14 @@
         <li><p>Jongyeon Lee. et al <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mrm.30026">Unsupervised motion artifact correction of turbo spin-echo MRI using deep image prior</a>. MRM (2024)</p></li>
         <li><p>Hamilton JI. et al. <a href="https://pubmed.ncbi.nlm.nih.gov/38098428/">Deep image prior cine MR fingerprinting with \(B_1^+\) spin history correction</a>. MRM (2024)</p></li>
     </ul></p>
-    <p>In dynamic imaging, instead of reconstructing each single image at each time point, you have to consider the temporal dependencies of dynamic measurements. In TDDIP method, they used a one-dimensional manifold parametrized by time to learn the time-dependencies. Even though a temporally meaningful manifolds was chosen, the hand-crafted design will limit the performance. Therefore, the author introduced a MapNet [<a href="https://openaccess.thecvf.com/content_CVPR_2019/html/Karras_A_Style-Based_Generator_Architecture_for_Generative_Adversarial_Networks_CVPR_2019_paper.html">1</a>] to add flexibility to their model. The MapNet involves some fully connected layers with nonlinearities, which is for mapping a fixed manifold into the more expressive latent space. \(\Omega = g_{\phi}(Z)\)</p>
-    <p>Zhongsen Li et al., however, think that the DIP-based dynamic imaging methods employed a pyramid-shaped CNN generator shared by all image frames. As a result, the expression of the model will be limited. Therefore they proposed a two stage generative network: (1). employing independent CNN to recover the image of each time point; (2) exploiting the spatio-temporal correlations within the feature space parameterized by a graph model(GNN). </p> 
+    <p>In dynamic imaging, instead of reconstructing each single image at each time point independently, the temporal dependencies of dynamic measurements should be taken into consideration. In TDDIP method, they used a one-dimensional manifold parametrized by time to learn the time-dependencies. Even though a temporally meaningful manifolds was chosen, the hand-crafted design will limit the performance. Therefore, the author introduced a MapNet [<a href="https://openaccess.thecvf.com/content_CVPR_2019/html/Karras_A_Style-Based_Generator_Architecture_for_Generative_Adversarial_Networks_CVPR_2019_paper.html">1</a>] to add flexibility to their model. The MapNet involves some fully connected layers with nonlinearities, which is for mapping a fixed manifold into the more expressive latent space. \(\Omega = g_{\phi}(Z)\)</p>
+    <p>Zhongsen Li et al., however, think that the TDDIP model would limit the model expression because it employed a pyramid-shaped CNN generator shared by all image frames. Therefore they proposed a two stage generative network: (1). employing independent CNN to recover the image of each time point; (2) exploiting the spatio-temporal correlations within the feature space parameterized by a graph model(GNN). </p> 
     <h3>3. Q&A</h3>
     <h4>1. Don't need to train MapNet(TDDIP)/GNN (Graph image prior) either?</h4>
+    <p> You should not only take the CNN network \(h_\psi\) as the parameterized network \(f_\theta\). Instead, the whole network \(f_\theta = G_\phi \circ h_\psi\)</p>
 
     <span style="color:red;">[this blogs is unfinished....]</span>
 
     <hr>
 </body>
-<p style="text-align: center;"> &copy; 2024 wrr6ps | All rights reserved </p>
+<p style="text-align: center;"> &copy; 2024 wrr6ps</p>
