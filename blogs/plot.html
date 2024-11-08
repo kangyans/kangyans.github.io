@@ -53,7 +53,7 @@
       <p>For the function <i>imshow</i>, a helpful setting is <code>imshow(abs(YourImage), [], 'border', 'tight')</code>, which removing unnecessary margins around the saved images, saving time on 
         cropping. The <i>montage</i> function is also useful, allowing you to combine images of different sizes into a single display. I often use it to combine a series of images and their zoomed-in details.
       </p>
-      <p>Regarding GIF creating, I wrote a simple codes to create GIF format:
+      <p>Regarding GIF creating, I wrote a function to create GIF format:
         <pre>
           function saveGIF(im3d, framerate, dir)
           % write the mat file to GIF format
@@ -62,10 +62,6 @@
           %   im3d     : size = [width, hight, time].
           %   framerate: expected frame rate of created GIF.
           %   dir      : ../../XXX.gif.
-
-          if nargin < 3
-           dir = pwd;
-          end
 
           im3d = abs(im3d);
 
@@ -78,7 +74,7 @@
             end
           end
         </pre>
-        <p>You can edit GIF using <a href="https://ezgif.com/">EZGIF</a>, a clean, and efficient website for GIF editing.</p>
+        <p>You can edit GIF using <a href="https://ezgif.com/">ezgif</a>, a clean, and efficient website for GIF editing.</p>
       </p>
 
   </body>
