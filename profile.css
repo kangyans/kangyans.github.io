@@ -15,16 +15,17 @@ img{
 }
     
 .text{
-    font-size: 17px;
+    font-size: 15px;
     padding-left: 20px;
 }
 
 body {
     background-color: #232D4B;
 }
+
 .content{
-    margin-left:20%;
-    margin-right:20%;
+    margin-left:15%;
+    margin-right:15%;
     margin-bottom:10px;
     margin-top:10px;
     line-height:1.2;
@@ -32,11 +33,12 @@ body {
     font-family: 'Times New Roman', Times, serif;
     vertical-align: middle;
     text-align: justify;
-    text-justify: inter-word;
+    text-justify: auto;
     border-radius: 5px;
     padding-left: 15px;
     padding-right: 15px;
-    width: 60%;
+    padding-bottom: 15px;
+    width: auto;
     height: auto;
     background: #FFFFFF;
 }
@@ -49,7 +51,7 @@ body {
 }
 .footnote{
     font-style:italic;
-    font-size:15px;
+    font-size:12px;
     text-align:center;
     font-family: cursive;
 }
@@ -62,7 +64,7 @@ hr {
     padding: 0;
 }
 
-#banner {
+.banner {
     height: 100px;
     margin-left:20%;
     margin-right: 20%;
@@ -86,17 +88,16 @@ pre {
     font-family: monospace;
     white-space: pre;
     margin: 1em 0;
-    border-style: solid;
-    border-width:1px;
+    border: black 1.5px solid;
     background-color: #e3dbdb;
-    font-size:12px;
+    font-size:11px;
 }
 
 code{
-    font-size:12px;
+    font-size:11px;
     font-family: monospace;
 }
 
 ul, li {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
