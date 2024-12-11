@@ -2,37 +2,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../profile.css">
   </head>
 
-  <style>
-    body{
-      line-height:1.2;
-      text-align: justify;
-      text-justify: inter-word;
-    }
-    .nav{
-      line-height:1.2;
-      text-align:end;
-    }
-  </style>
-  <div class="nav">
-      [<a href="..\index.html">Home</a>] [<a href="..\Projects.html">Projects</a>] [<a href="..\Publications.html">Publications</a>] [<a href="..\Blogs.html">Blogs</a>] [<a href="..\Misc.html">Misc</a>] [<a href="..\faq.html">FAQ</a>]
-  </div>
+
   <body>
+    <div class="content">
+      <div class="nav">
+        [<a href="..\index.html">Home</a>] [<a href="..\Projects.html">Projects</a>] [<a href="..\Publications.html">Publications</a>] [<a href="..\Blogs.html">Blogs</a>] [<a href="..\Misc.html">Misc</a>] [<a href="..\faq.html">FAQ</a>]
+      </div>
 
-    <h2>Images Creating on MATLAB for publications</h2>
-    <p>Data: 11/07/2024</p>
-    <hr>
-    <p>Having just completed the abstract submission for ISMRM 2025, I found myself spending a lot of time perfecting the figures. To save time next year and help others in a similar position, 
+      <h2>Images Creating on MATLAB for publications</h2>
+      <p>Data: 11/07/2024</p>
+      <hr>
+      <p>Having just completed the abstract submission for ISMRM 2025, I found myself spending a lot of time perfecting the figures. To save time next year and help others in a similar position, 
       I thought it would be helpful to compile some tips on creating clear, effective figures for ISMRM submissions or publications.
-    </p>
+      </p>
 
-    <p>To start, it's important to understand the differences between common image formats. ISMRM allows images to be submitted in PNG or JPEG formats, with GIF permitted for animated display. 
+      <p>To start, it's important to understand the differences between common image formats. ISMRM allows images to be submitted in PNG or JPEG formats, with GIF permitted for animated display. 
       While I'm not an expert on the topic, the key point is that JPEG uses lossy compression, meaning it reduces file size by discarding some image data, whereas PNG is a lossless format that 
       retain all image details. Since JPEG files are typically smaller, they're ideal for meeting ISMRM's 2MB file size limit, making JPEG my go-to choice.
-    </p>
+      </p>
 
-    <p>Returning to MATLAB. As for figure creating, two commonlly-used functions are: <i>plot</i> & <i>imshow</i>. You can save these figures manually or automate the process with the <i>print</i>
+      <p>Returning to MATLAB. As for figure creating, two commonlly-used functions are: <i>plot</i> & <i>imshow</i>. You can save these figures manually or automate the process with the <i>print</i>
       function.
       However, the default properties for both <i>plot</i> & <i>imshow</i> aren't typically optimized for publication-quality images. MATLAB offers a variety of customization options through
       <i><a href="https://www.mathworks.com/help/matlab/ref/matlab.graphics.axis.axes-properties.html">Axes Properties</a></i> and
@@ -41,7 +33,7 @@
       <p>For example, if you want to set the font size to 16 and line weight to 2 for the axis, you can use the command: <code>set(gca, 'FontSize', 16, 'LineWeight', 2)</code>. If you 
       need an exact figure size without resizing it in other software, use: <code>set(gcf, 'Position', [10, 10, 500, 1000])</code>,
       where <i>Position</i> property is a vector <code>[left, bottom, width, height]</code> (refer to <i>Figure Properties</i> for more details). For a black background, you can set: <code> set(gcf, 'Color', 'k')</code>.</p>
-      <p>Additionally, <i>nexttile</i> function is a good alternative to the <i>subplot</i> function because it can control the subplot spacing. A general usage example would look like:
+      <p>Additionally, <i>nexttile</i> function is a good alternative to the <i>subplot</i> function because it can control the subplot spacing. A general usage example would look like:</p>
       <pre>
         figre(1)
         t = tiledlayout(2,2, 'TileSpacing', 'compact')
@@ -49,11 +41,11 @@
         nexttile, plot(x2, y2);
         nexttile, plot(x3, y3);
         nexttile, plot(x4, y4);
-      </pre></p>
+      </pre>
       <p>For the function <i>imshow</i>, a helpful setting is <code>imshow(abs(YourImage), [], 'border', 'tight')</code>, which removing unnecessary margins around the saved images, saving time on 
         cropping. The <i>montage</i> function is also useful, allowing you to combine images of different sizes into a single display. I often use it to combine a series of images and their zoomed-in details.
       </p>
-      <p>Regarding GIF creating, I wrote a function to create GIF format:
+      <p>Regarding GIF creating, I wrote a function to create GIF format:</p>
         <pre>
           function saveGIF(im3d, framerate, dir)
           % write the mat file to GIF format
@@ -75,9 +67,9 @@
           end
         </pre>
         <p>You can edit GIF using <a href="https://ezgif.com/">ezgif</a>, a clean, and efficient website for GIF editing.</p>
-      </p>
 
+      <hr>
+      <p style="text-align: center;">&copy; 2024 wrr6ps</p>
+    </div>
   </body>
-  <hr>
-  <p style="text-align: center;">&copy; 2024 wrr6ps</p>
 </html>
