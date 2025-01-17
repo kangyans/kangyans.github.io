@@ -1,4 +1,8 @@
 
+#hp {
+    float: left;
+    margin: 0 15px 0 0;
+}
 
 .imgdiv{
     display: flex;
@@ -20,7 +24,7 @@ img{
 }
 
 body {
-    background-color: #232D4B;
+    background-color: white;
 }
 
 .content{
