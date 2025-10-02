@@ -1,0 +1,94 @@
+.frame{
+  border: 2px solid black;
+  display: inline-block;
+  padding: 50px;
+  outline: 3px solid black;
+  outline-offset: 3px;
+  width: 600px ;
+  height: 850px;
+  background: white;  
+
+
+  margin: 20px auto;
+  display: block;
+}
+
+.coverframe{
+  border: 2px solid black;
+  display: inline-block;
+  padding: 50px;
+
+  width: 600px ;
+  height: 850px;
+  background: lightyellow;  
+
+
+  margin: 20px auto;
+  display: block;
+}
+
+.box{
+   width: 100px;
+   height: 360px;
+   border: 2px solid black;
+   outline: 3px solid black;
+    outline-offset: 3px;
+   margin-right: 50px;
+   margin-top: 60px;
+   background-color: white;
+   padding: 8px;
+   float: left;
+   display: flex;
+   justify-content: center;
+}
+
+.coververtical{
+  writing-mode: vertical-rl;
+  font-family: "KaiTi", "FangSong", "SimSun", serif;
+  font-size: 45px;
+}
+
+.vertical{
+  writing-mode: vertical-rl;
+  font-family: "KaiTi", "FangSong", "SimSun", serif;
+  font-size: 20px;
+}
+
+
+.note{
+  line-height: 30px;
+  text-indent: 30px;
+  font-size: 15px;
+}
+
+.main{
+  line-height: 30px;
+}
+
+.footnote{
+  font-size:15px;
+  line-height:20px;
+  padding-top: 2em;  
+  text-indent: -3em;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Ensures the container spans the full width */
+}
+
+.nav-prev {
+  float: left;
+}
+
+.nav-next {
+  float: right;
+}
+
+.noteline{
+    width: 1px; 
+    background: black; 
+    margin-right: 50px;
+    margin-left: 20px;
+}
