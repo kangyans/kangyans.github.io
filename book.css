@@ -1,6 +1,5 @@
 .frame{
   border: 2px solid black;
-  display: inline-block;
   padding: 50px;
   outline: 3px solid black;
   outline-offset: 3px;
@@ -11,6 +10,7 @@
 
   margin: 20px auto;
   display: block;
+
 }
 
 .coverframe{
@@ -40,11 +40,7 @@
    float: left;
    display: flex;
    justify-content: center;
-   align-items: flex-start;
-   writing-mode: vertical-rl;
-   overflow-wrap: break-word;
-   word-break: break-word;
-   white-space: normal;;
+
 }
 
 .coververtical{
@@ -57,7 +53,14 @@
   writing-mode: vertical-rl;
   font-family: "KaiTi", "FangSong", "SimSun", serif;
   font-size: 20px;
-  display: inline-block;
+
+  height: 750px;
+  width: 500px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 
@@ -69,11 +72,13 @@
 
 .main{
   line-height: 30px;
+  padding: 23px; 
+
 }
 
 .footnote{
-  font-size:15px;
-  line-height:20px;
+  font-size:13px;
+  line-height:18px;
   padding-top: 2em;  
   text-indent: -3em;
 }
