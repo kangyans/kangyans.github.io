@@ -71,24 +71,3 @@
   padding-top: 2em;  
   text-indent: -3em;
 }
-
-.navigation-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%; /* Ensures the container spans the full width */
-}
-
-.nav-prev {
-  float: left;
-}
-
-.nav-next {
-  float: right;
-}
-
-.noteline{
-    width: 1px; 
-    background: black; 
-    margin-right: 50px;
-    margin-left: 20px;
-}
