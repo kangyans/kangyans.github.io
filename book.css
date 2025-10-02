@@ -32,7 +32,7 @@
    height: 360px;
    border: 2px solid black;
    outline: 3px solid black;
-    outline-offset: 3px;
+   outline-offset: 3px;
    margin-right: 50px;
    margin-top: 60px;
    background-color: white;
@@ -40,6 +40,11 @@
    float: left;
    display: flex;
    justify-content: center;
+   align-items: flex-start;
+   writing-mode: vertical-rl;
+   overflow-wrap: break-word;
+   word-break: break-word;
+   white-space: normal;;
 }
 
 .coververtical{
