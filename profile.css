@@ -113,7 +113,8 @@ table, th, td{
 pre {
     display: block;
     font-family: monospace;
-    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-word;
     margin: 1em 0;
     border: black 1.5px solid;
     background-color: #e3dbdb;
