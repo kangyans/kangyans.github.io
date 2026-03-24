@@ -149,28 +149,6 @@ ol.pub-list li {
     margin-bottom: 10px;
 }
 
-.book-scroll-wrapper {
-    overflow: hidden;
-    width: 100%;
-    padding: 8px 0;
-}
-
-.book-scroll-track {
-    display: flex;
-    gap: 24px;
-    width: max-content;
-    animation: book-marquee 18s linear infinite;
-}
-
-.book-scroll-wrapper:hover .book-scroll-track {
-    animation-play-state: paused;
-}
-
-@keyframes book-marquee {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
