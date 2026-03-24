@@ -61,6 +61,20 @@ body {
     color: #F84C1E;
     text-decoration: underline;
 }
+.nav-checkbox { display: none; }
+.nav-burger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #232D4B;
+    user-select: none;
+}
+@media (max-width: 600px) {
+    .nav-burger { display: block; }
+    .nav-links { display: none; flex-direction: column; align-items: center; gap: 12px; padding: 10px 0; }
+    .nav-checkbox:checked ~ .nav-links { display: flex; }
+    .nav-sep { display: none; }
+}
 .footnote{
     font-style:italic;
     font-size:12px;
