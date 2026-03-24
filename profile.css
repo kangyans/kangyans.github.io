@@ -32,9 +32,9 @@ body {
     margin-right:15%;
     margin-bottom:10px;
     margin-top:10px;
-    line-height:1.2;
+    line-height:1.6;
     font-size:17px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', serif;
     vertical-align: middle;
     text-align: justify;
     text-justify: auto;
@@ -48,10 +48,18 @@ body {
 }
 .nav{
     margin-top:15px;
-    line-height:1.2;
+    line-height:1.6;
     text-align:center;
-    background-color:white;
-    padding-top:15px; 
+    padding-top:15px;
+    letter-spacing: 0.02em;
+}
+.nav a {
+    text-decoration: none;
+    color: #232D4B;
+}
+.nav a:hover {
+    color: #F84C1E;
+    text-decoration: underline;
 }
 .footnote{
     font-style:italic;
