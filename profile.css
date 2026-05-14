@@ -23,28 +23,34 @@ img{
     padding-left: 20px;
 }
 
+.text p {
+    margin: 0 0 8px 0;
+}
+
+.profile-name {
+    font-size: 18px;
+    margin-bottom: 6px !important;
+}
+
+.social-icons a {
+    margin-right: 4px;
+    color: inherit;
+}
+
 body {
-    background-color: white;
+    background-color: #dde3ec;
 }
 
 .content{
-    margin-left:15%;
-    margin-right:15%;
-    margin-bottom:10px;
-    margin-top:10px;
-    line-height:1.6;
-    font-size:17px;
+    max-width: 660px;
+    margin: 20px auto;
+    line-height: 1.5;
+    font-size: 15px;
     font-family: Georgia, 'Times New Roman', serif;
-    vertical-align: middle;
-    text-align: justify;
-    text-justify: auto;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    width: auto;
-    height: auto;
+    text-align: left;
+    padding: 0 20px 20px;
     background: #FFFFFF;
+    box-shadow: 0 1px 4px rgba(35,45,75,0.08);
 }
 .nav{
     margin-top:15px;
@@ -60,6 +66,12 @@ body {
 .nav a:hover {
     color: #F84C1E;
     text-decoration: underline;
+}
+.nav-active {
+    color: #232D4B;
+    font-weight: bold;
+    border-bottom: 1.5px solid #232D4B;
+    padding-bottom: 1px;
 }
 .nav-checkbox { display: none; }
 .nav-burger {
@@ -86,8 +98,13 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
-    margin: 1em 0;
+    margin: 0.6em 0;
     padding: 0;
+}
+
+h3 {
+    font-size: 16px;
+    margin: 0.5em 0 0.3em;
 }
 
 .banner {
@@ -128,6 +145,24 @@ code{
 
 ul, li {
     margin-bottom: 3px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 9px;
+    margin: 2px 2px;
+    font-size: 12px;
+    border: 1px solid #232D4B;
+    border-radius: 12px;
+    color: #232D4B;
+    text-decoration: none;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.tag:hover {
+    background-color: #232D4B;
+    color: #fff;
+    text-decoration: none;
 }
 
 .pub-meta {
