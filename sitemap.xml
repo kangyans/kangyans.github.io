@@ -17,11 +17,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kangyans.github.io/Misc.html</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://kangyans.github.io/faq.html</loc>
+    <loc>https://kangyans.github.io/Link.html</loc>
     <priority>0.6</priority>
   </url>
 </urlset>
