@@ -22,17 +22,41 @@
 
 	
 	<body>
-		<div class="content">
+		<div class="page-wrapper">
+			<aside class="sidebar">
+				<div class="sidebar-sticky">
+					<div class="sidebar-name">Kang Yan</div>
+					<nav>
+						<span class="sidebar-active">Home</span>
+						<a href="Projects.html">Projects</a>
+						<a href="Publications.html">Publications</a>
+						<a href="resource/CV_Kang.pdf">CV</a>
+						<a href="News.html">News</a>
+						<a href="Link.html">Link</a>
+					</nav>
+					<div class="sidebar-divider"></div>
+					<div class="sidebar-sections">
+						<div class="sidebar-sections-label">On this page</div>
+						<a href="#biography">Biography</a>
+						<a href="#news">News</a>
+						<a href="#research-interests">Research</a>
+					</div>
+				</div>
+			</aside>
 
-
-			<div class="nav">
-				<input type="checkbox" id="nav-toggle" class="nav-checkbox">
-				<label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">&#9776;</label>
-				<span class="nav-links">
-					<span class="nav-active">Home</span> <span class="nav-sep">·</span> <a href="Projects.html">Projects</a> <span class="nav-sep">·</span> <a href="Publications.html">Publications</a> <span class="nav-sep">·</span> <a href="resource/CV_Kang.pdf">CV</a> <span class="nav-sep">·</span> <a href="News.html">News</a> <span class="nav-sep">·</span> <a href="Link.html">Link</a>
-				</span>
-			</div>	
-			<hr>
+			<div class="content">
+				<div class="mobile-nav">
+					<input type="checkbox" id="nav-toggle" class="nav-checkbox">
+					<label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">&#9776;</label>
+					<div class="mobile-nav-links">
+						<span class="nav-active-mobile">Home</span>
+						<a href="Projects.html">Projects</a>
+						<a href="Publications.html">Publications</a>
+						<a href="resource/CV_Kang.pdf">CV</a>
+						<a href="News.html">News</a>
+						<a href="Link.html">Link</a>
+					</div>
+				</div>
         	<section id="profile">
 			<div class="imgdiv">
             	<div class="img">
@@ -106,7 +130,8 @@
 		"Life is like a box of chocolates. You never know what you're gonna get"
 		-- Forrest Gump
 	</div>
-	</div>
+		</div><!-- .content -->
+		</div><!-- .page-wrapper -->
 	</body>
 </html>
 

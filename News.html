@@ -15,15 +15,33 @@
   </head>
 
   <body>
-    <div class="content">
-      <div class="nav">
-        <input type="checkbox" id="nav-toggle" class="nav-checkbox">
-        <label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">&#9776;</label>
-        <span class="nav-links">
-          <a href="index.html">Home</a> <span class="nav-sep">·</span> <a href="Projects.html">Projects</a> <span class="nav-sep">·</span> <a href="Publications.html">Publications</a> <span class="nav-sep">·</span> <a href="resource/CV_Kang.pdf">CV</a> <span class="nav-sep">·</span> <span class="nav-active">News</span> <span class="nav-sep">·</span> <a href="Link.html">Link</a>
-        </span>
-      </div>
-      <hr>
+    <div class="page-wrapper">
+      <aside class="sidebar">
+        <div class="sidebar-sticky">
+          <div class="sidebar-name">Kang Yan</div>
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Publications.html">Publications</a>
+            <a href="resource/CV_Kang.pdf">CV</a>
+            <span class="sidebar-active">News</span>
+            <a href="Link.html">Link</a>
+          </nav>
+        </div>
+      </aside>
+      <div class="content">
+        <div class="mobile-nav">
+          <input type="checkbox" id="nav-toggle" class="nav-checkbox">
+          <label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">&#9776;</label>
+          <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Publications.html">Publications</a>
+            <a href="resource/CV_Kang.pdf">CV</a>
+            <span class="nav-active-mobile">News</span>
+            <a href="Link.html">Link</a>
+          </div>
+        </div>
 
       <h3>2026</h3>
       <ul>
@@ -53,6 +71,7 @@
         <li>[02/2023] Has been awarded <a href="https://www.ismrm.org/23m/stipends/educational-program/">2023 ISMRM Educational Stipend</a></li>
       </ul>
 
-    </div>
+      </div><!-- .content -->
+    </div><!-- .page-wrapper -->
   </body>
 </html>

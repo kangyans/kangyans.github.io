@@ -17,15 +17,33 @@
 </head>
 
   <body>
-    <div class="content">
-      <div class="nav">
-        <input type="checkbox" id="nav-toggle" class="nav-checkbox">
-        <label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">&#9776;</label>
-        <span class="nav-links">
-          <a href="index.html">Home</a> <span class="nav-sep">·</span> <span class="nav-active">Projects</span> <span class="nav-sep">·</span> <a href="Publications.html">Publications</a> <span class="nav-sep">·</span> <a href="resource/CV_Kang.pdf">CV</a> <span class="nav-sep">·</span> <a href="News.html">News</a> <span class="nav-sep">·</span> <a href="Link.html">Link</a>
-        </span>
-      </div>
-      <hr>
+    <div class="page-wrapper">
+      <aside class="sidebar">
+        <div class="sidebar-sticky">
+          <div class="sidebar-name">Kang Yan</div>
+          <nav>
+            <a href="index.html">Home</a>
+            <span class="sidebar-active">Projects</span>
+            <a href="Publications.html">Publications</a>
+            <a href="resource/CV_Kang.pdf">CV</a>
+            <a href="News.html">News</a>
+            <a href="Link.html">Link</a>
+          </nav>
+        </div>
+      </aside>
+      <div class="content">
+        <div class="mobile-nav">
+          <input type="checkbox" id="nav-toggle" class="nav-checkbox">
+          <label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">&#9776;</label>
+          <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <span class="nav-active-mobile">Projects</span>
+            <a href="Publications.html">Publications</a>
+            <a href="resource/CV_Kang.pdf">CV</a>
+            <a href="News.html">News</a>
+            <a href="Link.html">Link</a>
+          </div>
+        </div>
       <h3><span style="color: #232D4B;">Dynamic cardiac cine imaging</span></h3> 
       <hr />
      <p>Cardiac magnetic resonance (CMR) is a critical imaging modality for the clinical assessment of cardiovascular diseases. However, conventional CMR acquisitions are inherently time-consuming, which can lead to patient discomfort, increased susceptibility to motion artifacts, and degraded image quality. This project leverages spiral k-space sampling strategies, particularly spiral balanced steady-state free precession (Spiral bSSFP), to accelerate CMR acquisition. We also develop deep learning–based reconstruction methods to recover high-quality images from accelerated acquisitions, enabling faster and more efficient CMR imaging.
@@ -48,6 +66,7 @@
 
       <h4>[<span style="color: green;">Exercise CMR</span>] Real-Time Cine under in-magnet staged exercise</h4>
       <p>TBD</p>
-    </div>
+      </div><!-- .content -->
+    </div><!-- .page-wrapper -->
   </body>
 </html>

@@ -16,16 +16,35 @@
 </head>
 
   <body>
-    <div class="content">
-      <div class="nav">
-        <input type="checkbox" id="nav-toggle" class="nav-checkbox">
-        <label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">&#9776;</label>
-        <span class="nav-links">
-          <a href="index.html">Home</a> <span class="nav-sep">·</span> <a href="Projects.html">Projects</a> <span class="nav-sep">·</span> <a href="Publications.html">Publications</a> <span class="nav-sep">·</span> <a href="resource/CV_Kang.pdf">CV</a> <span class="nav-sep">·</span> <span class="nav-active">Blogs</span> <span class="nav-sep">·</span> <a href="News.html">News</a> <span class="nav-sep">·</span> <a href="Link.html">Link</a>
-        </span>
-      </div>
-
-      <hr>
+    <div class="page-wrapper">
+      <aside class="sidebar">
+        <div class="sidebar-sticky">
+          <div class="sidebar-name">Kang Yan</div>
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Publications.html">Publications</a>
+            <a href="resource/CV_Kang.pdf">CV</a>
+            <span class="sidebar-active">Blogs</span>
+            <a href="News.html">News</a>
+            <a href="Link.html">Link</a>
+          </nav>
+        </div>
+      </aside>
+      <div class="content">
+        <div class="mobile-nav">
+          <input type="checkbox" id="nav-toggle" class="nav-checkbox">
+          <label for="nav-toggle" class="nav-burger" aria-label="Toggle navigation">&#9776;</label>
+          <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Publications.html">Publications</a>
+            <a href="resource/CV_Kang.pdf">CV</a>
+            <span class="nav-active-mobile">Blogs</span>
+            <a href="News.html">News</a>
+            <a href="Link.html">Link</a>
+          </div>
+        </div>
       <div class="border">
         <b>Notice</b>: You may notice that two symbols appear at the end of the title. What are they? Will, I will not only list my writings here, but I will also share blogs in the field of MRI that interest me the most. To distinguish these blogs, I will use &copy; to label the blogs I write, and the &#174; symbol to indicate that they are from other sources. Obviously, &copy; stands for copyright. As for &#174;, I use it to stand for requoting, which is far from its original meaning. But don't take it seriously!
       </div>
@@ -38,6 +57,7 @@
         <li>[05-28-2024] <a href="https://qantarot.substack.com/p/10-page-pdfs">Nikola Stikov: My 10-year battle with 10-page PDFs</a>&#174;</li>
         <li>[05-27-2024] <a href="https://videoprocessing.ai/metrics/ways-of-cheating-on-popular-objective-metrics.html">Ways of cheating on popular objective metrics: blurring, noise, super-resolution, and others</a>&#174;</li>
       </ul>
-    </div>
+      </div><!-- .content -->
+    </div><!-- .page-wrapper -->
   </body>
 </html>
